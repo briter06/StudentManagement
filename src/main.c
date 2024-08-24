@@ -3,13 +3,9 @@
 
 int main()
 {
-    struct Student student;
+    struct Student student = create_student(1, "Briter Gonzalez", 24, 18.2);
 
-    student.id = 1;
-    set_student_name(&student, "Briter Gonzalez");
-
-    printf("Student id: %d\n", student.id);
-    printf("Student name: %s\n", student.name);
+    print_student(student);
 
     return 0;
 }
