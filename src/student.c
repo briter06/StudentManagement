@@ -21,5 +21,5 @@ struct Student create_student(int id, const char *name, int age, float gpa)
 
 void print_student(struct Student s)
 {
-    printf("Student %d\n\tName: %s\n\tAge: %d\n\tGPA: %.2f", s.id, s.name, s.age, s.gpa);
+    printf("Student %d\n\tName: %s\n\tAge: %d\n\tGPA: %.2f\n", s.id, s.name, s.age, s.gpa);
 }
