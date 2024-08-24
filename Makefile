@@ -15,12 +15,19 @@ SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 # Executable
-EXEC = myprogram.exe
+EXEC = program.exe
 
 # Default target
-all: $(EXEC)
-# all:
-# 	echo $(OBJ)
+all: clean setup $(EXEC)
+
+wcompile: wclean setup-windows $(EXEC)
+
+# Setup
+setup:
+	@mkdir -p $(BUILD_DIR)
+
+setup-windows:
+	@mkdir $(BUILD_DIR)
 
 # Link object files to create the executable
 $(EXEC): $(OBJ)
@@ -33,3 +40,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 # Clean target to remove object files and executable
 clean:
 	rm -f $(BUILD_DIR)/*.o $(EXEC)
+
+# Clean target to remove object files and executable
+wclean:
+	rmdir /s /q build
