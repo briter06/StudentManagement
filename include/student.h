@@ -9,4 +9,6 @@ struct Student {
     float gpa;
 };
 
+// struct Student set_student_name(struct Strudent *s, const char *name);
+
 #endif
