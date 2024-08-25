@@ -5,7 +5,7 @@
 
 struct StudentList *create_list()
 {
-    struct StudentList *list = (struct Student *)malloc(sizeof(struct StudentList));
+    struct StudentList *list = (struct StudentList *)malloc(sizeof(struct StudentList));
     list->size = 0;
     list->pointer = malloc(0);
     return list;
@@ -70,4 +70,23 @@ void remove_student_at(struct StudentList *list, int index)
 
     list->pointer = new_list;
     list->size = new_size;
+}
+
+void remove_student_by_id(struct StudentList *list, int id)
+{
+    int index = index_of_student(list, id);
+    if (index == -1)
+    {
+        exit(EXIT_FAILURE);
+    }
+    remove_student_at(list, index);
+}
+
+void print_students(struct StudentList *list)
+{
+    for (int i = 0; i < list->size; i++)
+    {
+        print_student(list->pointer[i]);
+        printf("\n");
+    }
 }
