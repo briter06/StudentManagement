@@ -76,11 +76,10 @@ void remove_student_at(struct StudentList *list, int index)
 void remove_student_by_id(struct StudentList *list, int id)
 {
     int index = index_of_student(list, id);
-    if (index == -1)
+    if (index != -1)
     {
-        exit(EXIT_FAILURE);
+        remove_student_at(list, index);
     }
-    remove_student_at(list, index);
 }
 
 void print_students(struct StudentList *list)

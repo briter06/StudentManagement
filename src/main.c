@@ -28,11 +28,32 @@ void process_action(struct StudentList *list, int action)
         read_string(name, 50);
         scanf("%d", &age);
         scanf("%f", &gpa);
-        struct Student *student = create_student(get_new_student_id(list), name, age, gpa);
-        add_student(list, student);
+        struct Student *new_student = create_student(get_new_student_id(list), name, age, gpa);
+        add_student(list, new_student);
         printf("Student added successfully\n");
         break;
-    case 9:
+    case 2:
+        printf("Enter the student's Id:\n");
+        int id_to_find;
+        scanf("%d", &id_to_find);
+        struct Student *found_student = find_student(list, id_to_find);
+        if (found_student == NULL)
+        {
+            printf("Student not found\n");
+        }
+        else
+        {
+            print_student(found_student);
+        }
+        break;
+    case 3:
+        printf("Enter the student's Id:\n");
+        int id_to_delete;
+        scanf("%d", &id_to_delete);
+        remove_student_by_id(list, id_to_delete);
+        printf("Student deleted successfully!\n");
+        break;
+    case 4:
         print_students(list);
         break;
     default:
@@ -49,11 +70,11 @@ int main()
     while (continue_loop)
     {
         printf("==================================\n");
-        printf("Select action:\n\n1. Add student\n9. Print all students\n10. Exit\n\n");
+        printf("Select action:\n\n1. Add student\n2. Find student by Id\n3. Delete student by Id\n4. Print all students\n5. Exit\n\n");
         int action;
         scanf("%d", &action);
         fflush(stdin);
-        if (action == 10)
+        if (action == 5)
         {
             continue_loop = false;
         }
