@@ -10,10 +10,10 @@ struct Student
     float gpa;
 };
 
-struct Student set_student_name(struct Student *s, const char *name);
+void set_student_name(struct Student *s, const char *name);
 
-struct Student create_student(int id, const char *name, int age, float gpa);
+struct Student *create_student(int id, const char *name, int age, float gpa);
 
-void print_student(struct Student s);
+void print_student(struct Student *s);
 
 #endif
