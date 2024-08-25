@@ -57,6 +57,7 @@ void remove_student_at(struct StudentList *list, int index)
         exit(EXIT_FAILURE);
     }
     int new_size = list->size - 1;
+    free(list->pointer[new_size]);
     for (int i = index; i < new_size; i++)
     {
         list->pointer[i] = list->pointer[i + 1];
@@ -89,4 +90,13 @@ void print_students(struct StudentList *list)
         print_student(list->pointer[i]);
         printf("\n");
     }
+}
+
+int get_new_student_id(struct StudentList *list)
+{
+    if (list->size == 0)
+    {
+        return 0;
+    }
+    return list->pointer[list->size - 1]->id + 1;
 }

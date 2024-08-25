@@ -13,3 +13,4 @@ struct Student *find_student(struct StudentList *list, int id);
 void remove_student_at(struct StudentList *list, int index);
 void print_students(struct StudentList *list);
 void remove_student_by_id(struct StudentList *list, int id);
+int get_new_student_id(struct StudentList *list);
